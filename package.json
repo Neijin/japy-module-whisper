@@ -1,17 +1,14 @@
 {
   "name": "japy-module-whisper",
+  "description": "Based on https://github.com/ariym/whisper-node",
   "version": "0.2.12",
   "main": "dist/index.js",
   "bin": {
     "download": "dist/download.js"
   },
   "scripts": {
-    "preinstall": "",
     "postinstall": "npm run build && ./.scripts/install.sh",
-    "start": "echo Starting with: npm run dev... && npm run dev",
-    "build": "npx tsc && chmod +x dist/download.js",
-    "dev": "NODE_ENV='development' nodemon --watch './**/*.ts' --exec 'ts-node' src/test.ts",
-    "test": "node dist/test.js"
+    "build": "npx tsc && chmod +x dist/download.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
