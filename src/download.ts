@@ -8,7 +8,7 @@ import shell from 'shelljs';
 
 import readlineSync from 'readline-sync';
 
-import {DEFAULT_MODEL, MODELS_PATH} from './constants'
+import {DEFAULT_MODEL, NODE_MODULES_MODELS_PATH} from './constants'
 
 const MODELS_LIST = [
   "tiny",
@@ -51,7 +51,7 @@ const askModel = async () => {
 export default async function downloadModel() {
   try {
     // shell.exec("echo $PWD");
-    shell.cd(MODELS_PATH);
+    shell.cd(NODE_MODULES_MODELS_PATH);
 
     console.log(`
 | Model     | Disk   | RAM     |
