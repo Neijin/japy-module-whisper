@@ -2,11 +2,9 @@
   "name": "japy-module-whisper",
   "version": "0.2.12",
   "main": "dist/index.js",
-  "bin": {
-    "download": "dist/download.js"
-  },
   "scripts": {
-    "preinstall": "npm run build && ./.scripts/install.sh && npx download",
+    "preinstall": "",
+    "postinstall": "npm run build && ./.scripts/install.sh && node ./dist/download.js",
     "start": "echo Starting with: npm run dev... && npm run dev",
     "build": "npx tsc && chmod +x dist/download.js",
     "dev": "NODE_ENV='development' nodemon --watch './**/*.ts' --exec 'ts-node' src/test.ts",
@@ -19,6 +17,7 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
+    "fs-extra": "^11.1.1",
     "node-os-utils": "^1.3.7",
     "readline-sync": "^1.4.10",
     "shelljs": "^0.8.5"

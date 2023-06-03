@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-// Javascript layer for using the whisper.cpp built-in model downloader scripts 
+// Javascript layer for using the whisper.cpp built-in model downloader scripts
 //
 // npx whisper-node download
 
@@ -8,7 +8,7 @@ import shell from 'shelljs';
 
 import readlineSync from 'readline-sync';
 
-import {DEFAULT_MODEL, NODE_MODULES_MODELS_PATH} from './constants'
+import {DEFAULT_MODEL, MODELS_PATH} from './constants'
 
 const MODELS_LIST = [
   "tiny",
@@ -51,7 +51,7 @@ const askModel = async () => {
 export default async function downloadModel() {
   try {
     // shell.exec("echo $PWD");
-    shell.cd(NODE_MODULES_MODELS_PATH);
+    shell.cd(MODELS_PATH);
 
     console.log(`
 | Model     | Disk   | RAM     |
@@ -73,7 +73,7 @@ export default async function downloadModel() {
       throw "whisper-node downloader is not being run from the correct path! cd to project root and run again."
     }
 
-    const modelName = await askModel();
+    const modelName = "large"; //await askModel();
 
     // default is .sh
     let scriptPath = "./download-ggml-model.sh"
