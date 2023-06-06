@@ -55,6 +55,7 @@ const getFlags = (flags: IFlagTypes): string => {
   if (flags["word_timestamps"]) s += " -ml 1";
   s += " -t " + OS.cpu.count();
   s += " -l auto";
+  s += ' --prompt auto "This is a multi-person dialogue."';
   return s;
 }
 
